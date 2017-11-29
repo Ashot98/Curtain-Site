@@ -1,0 +1,34 @@
+@import "smart-grid"
+
+.theme
+  padding-top: 160px
+  padding-bottom: 160px 
+  background-color: #fecccc
+  .theme_content
+    +row-flex()
+    +md(justify-content, center)
+    .card
+      +col()
+      +size(6)
+      +shift-left(3)
+      height: 240px
+      background-color: #fff
+      border: 2px solid #b0a171
+      outline: 15px solid #fff
+      display: flex
+      justify-content: center
+      align-items: center
+      .card_content
+        width: 60%
+        text-align: center
+        color: #b0a171
+        text-transform: uppercase
+        hr
+          border: none
+          height: 2px
+          color: #b0a171
+          background-color: #b0a171
+        span
+          font-size: 24px
+        #name
+          font-size: 27.5px
