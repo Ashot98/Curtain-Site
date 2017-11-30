@@ -1,10 +1,13 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router-dom';
 
 import App from './components/app';
+import Main from './components/main';
+import Contacts from './components/contacts';
 
 export default (
-  <Route path='/' component={App}>
-    
-  </Route>
+  <div>
+    <Route extact path='/' component={Main} />
+    <Route path='/contacts' component={Contacts} />
+  </div>
 )

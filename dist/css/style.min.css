@@ -145,7 +145,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 55px 0;
+  margin: 45px 0;
 }
 
 .wrapper .nav li {
@@ -159,6 +159,10 @@
 }
 
 .wrapper .nav li a:hover {
+  color: #fecccc;
+}
+
+.wrapper .nav .active a {
   color: #fecccc;
 }
 
