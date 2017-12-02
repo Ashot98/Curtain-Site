@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { setActive } from '../actions/index';
+import { connect } from 'react-redux';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
+  componentWillMount() {
+    const url = window.location.href;
+    const parser = document.createElement('a');
+    parser.href = url;
+    const page = parser.pathname.slice(1);
     
-    this.state = { active: "Главная" };
+    switch(page) {
+      case "services": case "contacts": case "call": 
+        this.props.setActive(page);
+        break;
+      default:
+        this.props.setActive("main");
+    }
   }
   
-  navPageSelect(event) {
-    this.setState({ active: event.target.textContent });
+  navPageSelect(page) {
+    this.props.setActive(page);
   }
   
   render() {
@@ -17,20 +28,20 @@ class Navbar extends Component {
       <div className='wrapper'>
         <ul className='nav'>
           <li className='logo'>Jakkard</li>
-          <li className={this.state.active == 'Главная' ? 'active' : ''}>
-            <Link to='/' onClick={this.navPageSelect.bind(this)}>Главная</Link>
+          <li className={this.props.active == 'main' ? 'active' : ''}>
+            <Link to='/' onClick={() => this.navPageSelect('main')}>Главная</Link>
           </li>
-          <li className={this.state.active == 'Услуги' ? 'active' : ''}>
-            <Link to='/services' onClick={this.navPageSelect.bind(this)}>Услуги</Link>
+          <li className={this.props.active == 'services' ? 'active' : ''}>
+            <Link to='/services' onClick={() => this.navPageSelect('services')}>Услуги</Link>
           </li>
-          <li className={this.state.active == 'Контакты' ? 'active' : ''}>
-            <Link to='/contacts' onClick={this.navPageSelect.bind(this)}>Контакты</Link>
+          <li className={this.props.active == 'contacts' ? 'active' : ''}>
+            <Link to='/contacts' onClick={() => this.navPageSelect('contacts')}>Контакты</Link>
           </li>
-          <li className={this.state.active == 'Вызвать Дизайнера' ? 'active' : ''}>
-            <Link to='/call' onClick={this.navPageSelect.bind(this)}>Вызвать Дизайнера</Link>
+          <li className={this.props.active == 'call' ? 'active' : ''}>
+            <Link to='/call' onClick={() => this.navPageSelect('call')}>Вызвать Дизайнера</Link>
           </li>
-          <li className={this.state.active == 'Навигация' ? 'active' : ''}>
-            <Link to='/nav' onClick={this.navPageSelect.bind(this)}>Навигация</Link>
+          <li className={this.props.active == 'nav' ? 'active' : ''}>
+            <Link to='/nav' onClick={() => this.navPageSelect('nav')}>Навигация</Link>
           </li>
         </ul>
       </div>
@@ -38,4 +49,8 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+  return { active: state.active };
+}
+
+export default connect(mapStateToProps, { setActive })(Navbar);

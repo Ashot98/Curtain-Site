@@ -10,6 +10,7 @@ var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 
 var browserSync = require('browser-sync').create();
+var middleware = require('connect-history-api-fallback')
 
 var del = require('del');
 
@@ -43,7 +44,8 @@ gulp.task('styles', function() {
 gulp.task('browser-sync', ['styles', 'webpack'], function() {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: "./dist",
+      middleware: [middleware()]
     },
     notify: false
   });

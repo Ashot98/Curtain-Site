@@ -113,11 +113,49 @@
   height: auto;
 }
 
+h3 {
+  font-size: 30px;
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.main {
+  margin-top: 60px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.main .btn-contact {
+  text-decoration: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #cbc2a2;
+  padding: 18px 43px;
+  border: 2px solid #cbc2a2;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
+  transition: .2s all;
+}
+
+.main .btn-contact:hover {
+  background-color: #cbc2a2;
+  color: #fff;
 }
 
 .wrapper {
@@ -156,6 +194,10 @@
 .wrapper .nav li a {
   color: #b0a171;
   text-decoration: none;
+  font-size: 18px;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
+  transition: .2s all;
 }
 
 .wrapper .nav li a:hover {
@@ -240,6 +282,52 @@
 
 .theme .theme_content .card .card_content #name {
   font-size: 27.5px;
+}
+
+.works {
+  margin-top: 165px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.works h3 {
+  color: #998955;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.works hr {
+  margin-top: 15px;
+  width: 12%;
+  border: none;
+  height: 2px;
+  color: #b0a171;
+  background-color: #b0a171;
+}
+
+.works .works_items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.works .works_items .works_item {
+  height: 260px;
+  margin-top: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: -webkit-calc(33.33333% - 30px);
+  width: calc(33.33333% - 30px);
+  background-color: #fecccc;
 }
 
 @media screen and (max-width:960px) {
