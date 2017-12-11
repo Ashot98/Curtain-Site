@@ -1,0 +1,22 @@
+@import 'smart-grid'
+
+.about
+  visibility: hidden
+  opacity: 0
+  transition: opacity 0.5s ease
+  .content
+    +wrapper()
+    margin-top: 60px
+    color: darken(#b0a171, 20)
+    p
+      font-size: 20px
+      margin: 10px
+    ul
+      font-size: 20px
+      margin: 10px
+      margin-left: 30px
+      li
+        list-style-type: circle
+.active-tab
+      visibility: visible 
+      opacity: 1 

@@ -9,7 +9,8 @@ const VENDOR_LIBS = [
 module.exports = {
   entry: {
     bundle: './src/js/index.js',
-    vendor: VENDOR_LIBS
+    vendor: VENDOR_LIBS,
+	server: './src/server.js'
   },
   output: {
     path: path.join(__dirname, 'dist/js'),

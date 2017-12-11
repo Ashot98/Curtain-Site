@@ -3,14 +3,17 @@
 .theme
   padding-top: 160px
   padding-bottom: 160px 
-  background-color: #fecccc
+  background: url("../img/theme-bg.png") 100% 100%
   .theme_content
     +row-flex()
     +md(justify-content, center)
     .card
       +col()
       +size(6)
+      +size-sm(8)
+      +size-xs(10)
       +shift-left(3)
+      +shift-md-left(0)
       height: 240px
       background-color: #fff
       border: 2px solid #b0a171
@@ -32,3 +35,14 @@
           font-size: 24px
         #name
           font-size: 27.5px
+          
+@media screen and (max-width: 560px)
+  .theme
+    padding-top: 100px
+    padding-bottom: 100px
+    .theme_content
+      .card
+        height: 180px
+        .card_content
+          span
+            font-size: 20px

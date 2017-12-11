@@ -10,7 +10,7 @@ class Theme extends Component {
               <div className="card_content">
                 <span id="name">Jakkard</span>
                 <hr />
-                <span>Салон шторов</span>
+                <span>Салон штор</span>
               </div>
             </div>
           </div>

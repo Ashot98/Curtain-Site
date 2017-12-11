@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { setActive } from '../actions/index';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 
 class Navbar extends Component {
   componentWillMount() {
@@ -11,7 +12,7 @@ class Navbar extends Component {
     const page = parser.pathname.slice(1);
     
     switch(page) {
-      case "services": case "contacts": case "call": 
+      case "services": case "contacts": case "call": case "catalog": 
         this.props.setActive(page);
         break;
       default:
@@ -23,25 +24,65 @@ class Navbar extends Component {
     this.props.setActive(page);
   }
   
+  onClickXS(){
+    if(window.innerWidth > 560)
+      return;
+    
+    const menu = $('.nav li');
+    if($('.nav .active').css('display') == 'none')
+      menu.css({
+        "display": "block"
+      });
+    else {
+      menu.css({
+        "display": "none"
+      });
+      $('.nav .logo').css({
+         "display": "block"
+      });
+    }
+  }
+  
   render() {
     return (
       <div className='wrapper'>
         <ul className='nav'>
-          <li className='logo'>Jakkard</li>
+          <li className='logo' onClick={this.onClickXS}>
+            <hr />
+            <span id='logo-pic'>Jakkard</span>
+            <hr />
+            </li>
           <li className={this.props.active == 'main' ? 'active' : ''}>
             <Link to='/' onClick={() => this.navPageSelect('main')}>Главная</Link>
           </li>
-          <li className={this.props.active == 'services' ? 'active' : ''}>
-            <Link to='/services' onClick={() => this.navPageSelect('services')}>Услуги</Link>
+          <li className={this.props.active == 'catalog' ? 'active catalog' : 'catalog'}>
+            <a onClick={(e) => {e.preventDefault();}}>Каталог</a>
+            <ul className='submenu'>
+              <li>
+                <Link to='/works' onClick={() => this.navPageSelect('catalog')}>Наши работы</Link>
+              </li>
+              <li>
+                <Link to='/accessories' onClick={() => this.navPageSelect('catalog')}>Аксессуары</Link>
+              </li>
+              <li>
+                <Link to='/cornice' onClick={() => this.navPageSelect('catalog')}>Карнизы</Link>
+              </li>
+              <li>
+                <Link to='/textile' onClick={() => this.navPageSelect('catalog')}>Каталог тканей</Link>
+              </li>
+              <li>
+                <Link to='/sketches' onClick={() => this.navPageSelect('catalog')}>Эскизы</Link>
+              </li>
+            </ul>
           </li>
           <li className={this.props.active == 'contacts' ? 'active' : ''}>
             <Link to='/contacts' onClick={() => this.navPageSelect('contacts')}>Контакты</Link>
           </li>
+          <li className={this.props.active == 'about' ? 'active' : ''}>
+            <Link to='/about' onClick={() => this.navPageSelect('about')}>О Нас</Link>
+          </li>
           <li className={this.props.active == 'call' ? 'active' : ''}>
             <Link to='/call' onClick={() => this.navPageSelect('call')}>Вызвать Дизайнера</Link>
-          </li>
-          <li className={this.props.active == 'nav' ? 'active' : ''}>
-            <Link to='/nav' onClick={() => this.navPageSelect('nav')}>Навигация</Link>
           </li>
         </ul>
       </div>
