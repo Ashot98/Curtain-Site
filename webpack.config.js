@@ -3,7 +3,7 @@ var path = require('path');
 
 const VENDOR_LIBS = [
   'lodash', 'redux', 'react-redux', 'react-dom',
-  'react', 'react-router', 'react-router-dom'
+  'react', 'react-router', 'react-router-dom', 'axios'
 ];
 
 module.exports = {

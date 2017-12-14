@@ -1,12 +1,12 @@
 @import 'smart-grid'
 
 .about
-  visibility: hidden
-  opacity: 0
-  transition: opacity 0.5s ease
+  display: none
+  margin-top: 60px
+  opacity: 1
+  transition: opacity 0.5s
   .content
     +wrapper()
-    margin-top: 60px
     color: darken(#b0a171, 20)
     p
       font-size: 20px
@@ -18,5 +18,4 @@
       li
         list-style-type: circle
 .active-tab
-      visibility: visible 
-      opacity: 1 
+  display: block

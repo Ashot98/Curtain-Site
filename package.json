@@ -13,6 +13,7 @@
   "author": "Ashot Azizyan",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-preset-stage-1": "^6.24.1",
     "connect-history-api-fallback": "^1.5.0",
     "lodash": "^4.17.4",
