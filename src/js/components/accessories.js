@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 import ImgContainer from './img_container';
 
 class Accessories extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      $('.accessories').css({
+        "opacity": "1"
+      });
+    }, 10);
+  }
+
   render() {
     return (
       <div className='accessories wrapper'>

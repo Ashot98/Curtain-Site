@@ -58,8 +58,34 @@ class Navbar extends Component {
           <li className={this.props.active == 'catalog' ? 'active catalog' : 'catalog'}>
             <a onClick={(e) => {e.preventDefault();}}>Каталог</a>
             <ul className='submenu'>
-              <li>
-                <Link to='/works' onClick={() => this.navPageSelect('catalog')}>Наши работы</Link>
+              <li className='work_examples'>
+                <a onClick={(e) => {e.preventDefault();}}>Наши Работы</a>
+                <ul className='submenu'>
+                  <li>
+                    <Link to='/livingroom' onClick={() => this.navPageSelect('catalog')}>Гостиная</Link>
+                  </li>
+                  <li>
+                    <Link to='/diningroom' onClick={() => this.navPageSelect('catalog')}>Столовая</Link>
+                  </li>
+                  <li>
+                    <Link to='/bedroom' onClick={() => this.navPageSelect('catalog')}>Спальня</Link>
+                  </li>
+                  <li>
+                    <Link to='/childroom' onClick={() => this.navPageSelect('catalog')}>Детская</Link>
+                  </li>
+                  <li>
+                    <Link to='/cabinet' onClick={() => this.navPageSelect('catalog')}>Кабинет</Link>
+                  </li>
+                  <li>
+                    <Link to='/ladder' onClick={() => this.navPageSelect('catalog')}>Лестничные пролеты</Link>
+                  </li>
+                  <li>
+                    <Link to='/corp' onClick={() => this.navPageSelect('catalog')}>Корпоративные</Link>
+                  </li>
+                  <li>
+                    <Link to='/interior' onClick={() => this.navPageSelect('catalog')}>Предметы интерьера</Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <Link to='/accessories' onClick={() => this.navPageSelect('catalog')}>Аксессуары</Link>

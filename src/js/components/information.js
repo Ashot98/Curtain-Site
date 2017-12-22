@@ -14,7 +14,10 @@ class Information extends Component {
   }
 
   onTabClick(e) {
-    const target = $(e.target);
+    let target = $(e.target);
+    if(target.prop('nodeName').toUpperCase() != 'DIV') {
+      target = target.parent();
+    }
     const about = $('.about');
     const services = $('.services');
 
@@ -57,10 +60,15 @@ class Information extends Component {
       <div className='inform'>
         <div className='wrapper'>
           <div className='tabs'>
-            <h3 className='about-tab-header active-tab-header' onClick={this.onTabClick}>О Компании</h3>
-            <h3 className='services-tab-header' onClick={this.onTabClick}>Услуги</h3>
+            <div className='about-tab-header active-tab-header' onClick={this.onTabClick}>
+              <h3>О Компании</h3>
+              <hr />
+            </div>
+            <div className='services-tab-header' onClick={this.onTabClick}>
+              <h3>Услуги</h3>
+              <hr />
+            </div>
           </div>
-          <hr />
         </div>
         <About />
         <Services />

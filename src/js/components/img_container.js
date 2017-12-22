@@ -8,12 +8,12 @@ class ImgContainer extends Component {
     this.props.getImages(this.props.type);
   }
 
-  renderImages() {
-    return this.props.photos.map(photo => {
+  renderImage(img) {
+    return (
       <div className="img_item" onClick={this.onImgClick}>
-        <img src={photo.path} alt="" />
+        <img src={img.path} alt="" />
       </div>
-    })
+    );
   }
 
   onImgClick(e) {
@@ -39,7 +39,7 @@ class ImgContainer extends Component {
         <div className="selected_img" onClick={this.onImgClick}>
           <img src=""></img>
         </div>
-        { this.renderImages() }
+        { this.props.photos.map(this.renderImage.bind(this)) }
       </div>
     );
   }
