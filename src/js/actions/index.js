@@ -1,6 +1,6 @@
 import { SET_ACTIVE, GET_IMAGES } from './types'; 
 import axios from 'axios';
-import config from "../../config";
+import config from "../../../config";
 
 export function setActive(active) {
   return {

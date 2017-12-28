@@ -1,6 +1,7 @@
  var mongoose = require('mongoose');
- 
+ var config = require('../../config');
+
  mongoose.Promise = global.Promise;
- mongoose.connect('mongodb://localhost:27017/Project');
+ mongoose.connect('config.mongo_server');
 
  module.exports = {mongoose};
