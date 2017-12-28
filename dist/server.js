@@ -12,7 +12,7 @@
  app.use(bodyParser.json());
  app.use(express.static(__dirname));
 
- console.log(__dirname);
+ 
 // POST QUERY 
  app.post('/api/photos/type=:type', function(req, res) {
   if (!req.files)
