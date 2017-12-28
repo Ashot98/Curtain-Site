@@ -1,5 +1,5 @@
 module.exports = {
-  api_server: `http://localhost:8080/api/`,
+  api_server: `https://mysterious-cliffs-16789.herokuapp.com/api`,
   mongo_server: `mongodb://AshotA2:077371760a@ds133127.mlab.com:33127/jakkard`,
   image_path: `img/`
 }
