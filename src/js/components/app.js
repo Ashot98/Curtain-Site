@@ -28,12 +28,21 @@ $(window).on('resize', () => {
 
 export default class App extends Component {
   render() {
-    return (
+    const url = window.location.href;
+    const parser = document.createElement('a');
+    parser.href = url;
+    const page = parser.pathname.slice(1);
+    if(page == 'admin')
+      return (
+        <div> {routes} </div>
+      );
+    else
+      return(
         <div>
-            <Header />
-            {routes}
-            <Footer />
+          <Header />
+          {routes}
+          <Footer />
         </div>
-    );
+      )
   }
 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import $ from 'jquery';
 
-const renderField = ({ input, label, type, className}) => {
+export const renderField = ({ input, label, type, className}) => {
   return (
-    <div className={'form-item ' + className}>
+    <div className={'form_item ' + className}>
       <label>{label}</label>
       <input {...input} type={type}  />
     </div>
@@ -11,8 +12,16 @@ const renderField = ({ input, label, type, className}) => {
 }
 
 class Designer extends Component {
-  componentWillMount() {
+  componentDidMount() {
+    setTimeout(() => {
+      $('.designer').css({
+        "opacity": "1"
+      });
+    }, 10);
+  }
 
+  onSubmit(e) {
+    console.log(e);
   }
 
   render() {
@@ -36,11 +45,11 @@ class Designer extends Component {
         <p>
           А самое главное, что выезд дизайнера бесплатный и совсем неважно, будете вы заказывать шторы у нас или нет.
         </p>
-        <form className='designer_form' onSubmit={handleSubmit}>
+        <form className='designer_form' onSubmit={handleSubmit(this.onSubmit)}>
           <Field name='fullname' className='fullname' type='text' component={renderField} label='ФИО:' />
           <Field name='tel' className='tel' type='text' component={renderField} label='Телефон:' />
           <Field name='email' className='email' type='text' component={renderField} label='E-Mail:' />
-          <div className='form-item addInfo'>
+          <div className='form_item addInfo'>
             <label>Ваше сообщение:</label>
             <Field name='add_info' component='textarea' />
           </div>

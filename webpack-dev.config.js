@@ -32,6 +32,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
+	new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: 'src/index.html'

@@ -1,4 +1,4 @@
 export default {
-  api_server: `http://localhost:3500/api/`,
+  api_server: `http://localhost:8080/api/`,
   image_path: `img/`
 }

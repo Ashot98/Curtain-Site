@@ -10,7 +10,7 @@ class Works extends Component {
         <div className="wrapper">
           <h3>Наши работы</h3>
           <hr />
-          <ImgContainer type='General'/>
+          <ImgContainer type='general'/>
         </div>
       </div>
     );
