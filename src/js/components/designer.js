@@ -20,8 +20,8 @@ class Designer extends Component {
     }, 10);
   }
 
-  onSubmit(e) {
-    console.log(e);
+  onSubmit(values) {
+    console.log(values);
   }
 
   render() {
