@@ -39,9 +39,7 @@ class ImgContainer extends Component {
         <div className="selected_img" onClick={this.onImgClick}>
           <img src=""></img>
         </div>
-        { 
-          this.props.photos ? this.props.photos.map(this.renderImage.bind(this)) : ''
-        }
+        { this.props.photos.map(this.renderImage.bind(this)) }
       </div>
     );
   }
