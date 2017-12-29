@@ -34,12 +34,17 @@ class ImgContainer extends Component {
   }
 
   render() {
+    let imgElem = '';
+    if(Array.isArray(this.props.photos)) {
+      imgElem = this.props.photos.map(this.renderImage.bind(this))
+    }
+
     return (
       <div className='img_items'>
         <div className="selected_img" onClick={this.onImgClick}>
           <img src=""></img>
         </div>
-        { this.props.photos.map(this.renderImage.bind(this)) }
+        { imgElem }
       </div>
     );
   }
