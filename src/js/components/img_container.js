@@ -34,6 +34,7 @@ class ImgContainer extends Component {
   }
 
   render() {
+    console.log(this.props.photos);
     return (
       <div className='img_items'>
         <div className="selected_img" onClick={this.onImgClick}>
