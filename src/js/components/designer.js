@@ -44,9 +44,15 @@ class Designer extends Component {
   }
 
   onSubmit(values) {
+    const { reset } = this.props;
     axios.post(`${config.api_server}/designer`, values).then(
-      result => { this.showPopup(true); },
-      error => { this.showPopup(false); }
+      result => { 
+        this.showPopup(true);
+        reset();
+      },
+      error => { 
+        this.showPopup(false);
+      }
     );
     
   }

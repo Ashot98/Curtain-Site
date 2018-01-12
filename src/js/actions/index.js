@@ -1,4 +1,4 @@
-import { SET_ACTIVE, GET_IMAGES } from './types'; 
+import { SET_ACTIVE, GET_IMAGES, AUTH_USER } from './types'; 
 import axios from 'axios';
 import config from "../../../config";
 
@@ -23,6 +23,16 @@ export function getImages(type) {
   
   return {
     type: GET_IMAGES,
+    payload: request
+  }
+}
+
+export function authUser(credentials) {
+  const url = `${config.api_server}login`;
+  const request = axios.post(url, credentials);
+
+  return {
+    type: AUTH_USER,
     payload: request
   }
 }

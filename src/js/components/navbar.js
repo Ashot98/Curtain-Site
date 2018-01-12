@@ -42,6 +42,32 @@ class Navbar extends Component {
       });
     }
   }
+
+  onCatClick() {
+    if(window.innerWidth > 560)
+      return;
+
+    const submenu = $('.catalog .submenu');
+
+    if(submenu.hasClass('active'))
+      submenu.removeClass('active');
+    else {
+      submenu.addClass('active');
+      $('.work_examples .submenu').removeClass('active');
+    }
+  }
+
+  onWorkClick() {
+    if(window.innerWidth > 560)
+      return;
+
+    const submenu = $('.work_examples .submenu');
+
+    if(submenu.hasClass('active'))
+      submenu.removeClass('active');
+    else
+      submenu.addClass('active');
+  }
   
   render() {
     return (
@@ -55,11 +81,11 @@ class Navbar extends Component {
           <li className={this.props.active == 'main' ? 'active' : ''}>
             <Link to='/' onClick={() => this.navPageSelect('main')}>Главная</Link>
           </li>
-          <li className={this.props.active == 'catalog' ? 'active catalog' : 'catalog'}>
-            <a onClick={(e) => {e.preventDefault();}}>Каталог</a>
+          <li className={this.props.active == 'catalog' ? 'active catalog' : 'catalog'} >
+            <a onClick={(e) => {e.preventDefault();this.onCatClick();}}>Каталог</a>
             <ul className='submenu'>
               <li className='work_examples'>
-                <a onClick={(e) => {e.preventDefault();}}>Наши Работы</a>
+                <a onClick={(e) => {e.preventDefault();this.onWorkClick();}}>Наши Работы</a>
                 <ul className='submenu'>
                   <li>
                     <Link to='/livingroom' onClick={() => this.navPageSelect('catalog')}>Гостиная</Link>

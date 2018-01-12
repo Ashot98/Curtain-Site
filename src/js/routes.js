@@ -18,7 +18,7 @@ import Cornices from './components/cornices';
 import Textile from './components/textile';
 import Sketches from './components/sketches';
 import Designer from './components/designer';
-import Login from './components/login';
+import Admin from './components/admin';
 
 export default (
     <Switch>
@@ -38,6 +38,6 @@ export default (
       <Route path='/textile' component={Textile} />
       <Route path='/sketches' component={Sketches} />
       <Route path='/call' component={Designer} />
-      <Route path='/admin' component={Login} />
+      <Route path='/admin' component={Admin} />
     </Switch>
 )

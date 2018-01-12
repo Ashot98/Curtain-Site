@@ -39,17 +39,9 @@
     position: relative
     cursor: pointer
     .submenu
-      width: calc(100% + 42px)
-      top: 100%
-      left: -21px
-      position: absolute
-      transform: translateY(-2em)
-      z-index: -1
-      opacity: 0
-      visibility: hidden
-      transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, z-index 0.5s ease, box-shadow 0.5s ease
+      display: none
+      width: 100%
       background-color: #fff
-      box-shadow: 5px 5px rgba(0,0,0,0)
       li
         padding: 10px
         text-align: center
@@ -61,30 +53,15 @@
         &:hover
           a
             color: darken(#aea79d, 20)
-    &:hover
-      .fa-arrow-down
-        transform: rotateZ(180deg)
-      .submenu
-        visibility: visible
-        opacity: 1
-        z-index: 1
-        transform: translateY(0%)
-        box-shadow: 5px 5px rgba(0,0,0,0.15)
+    .active
+      display: block
     .work_examples
       position: relative
       cursor: pointer
       .submenu
-        width: calc(100% + 34px)
-        position: absolute
-        top: 0
-        left: 100%
-        transform: translateX(-20px)
-        z-index: -1
-        opacity: 0
-        visibility: hidden
-        transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, z-index 0s ease, box-shadow 0.5s ease
+        display: none
+        width: 100%
         background-color: #fff
-        box-shadow: 5px 5px rgba(0,0,0,0)
         li
           padding: 10px
           text-align: center
@@ -96,21 +73,75 @@
           &:hover
             a
               color: darken(#aea79d, 20)
+      .active
+        display: block
+
+@media screen and (min-width: 560px)
+  .nav
+    .catalog
+      .submenu
+        display: block
+        width: calc(100% + 42px)
+        top: 100%
+        left: -21px
+        position: absolute
+        transform: translateY(-2em)
+        z-index: -1
+        opacity: 0
+        visibility: hidden
+        transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, z-index 0.5s ease, box-shadow 0.5s ease
+        box-shadow: 5px 5px rgba(0,0,0,0)
       &:hover
-        .fa-arrow-right
-          transform: rotateZ(180deg)
         .submenu
           visibility: visible
-          transform: translateX(0)
           opacity: 1
           z-index: 1
+          transform: translateY(0%)
           box-shadow: 5px 5px rgba(0,0,0,0.15)
-      
+      .work_examples
+        .submenu
+          display: block
+          width: calc(100% + 34px)
+          position: absolute
+          top: 0
+          left: 100%
+          transform: translateX(-20px)
+          z-index: -1
+          opacity: 0
+          visibility: hidden
+          transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, z-index 0s ease, box-shadow 0.5s ease
+          box-shadow: 5px 5px rgba(0,0,0,0)
+        &:hover
+          .submenu
+            visibility: visible
+            transform: translateX(0)
+            opacity: 1
+            z-index: 1
+            box-shadow: 5px 5px rgba(0,0,0,0.15)
+
 @media screen and (max-width: 960px)
   .nav
     li
+      padding: 5px
       a
-        font-size: 16px
+        font-size: 14px
+    .catalog
+      .submenu
+        li
+          margin-top: 15px
+          &:first-child
+            padding-top: 10px
+          padding: 5px
+          a
+            font-size: 14px
+      .work_examples
+        .submenu
+         li
+          &:first-child
+           padding-top: 5px
+          padding: 5px
+          a
+            font-size: 14px
     .logo
       font-size: 14px
       
@@ -125,6 +156,10 @@
       display: block
       a
         font-size: 14px
+    .catalog
+      .submenu
+        li
+          margin-top: 10px
     .logo
       width: 100%
       margin-left: 0
@@ -140,6 +175,16 @@
       display: none
       a
         font-size: 18px
+    .catalog
+      .submenu
+        li
+          a
+            font-size: 18px
+      .work_examples
+        .submenu
+          li
+            a
+              font-size: 18px
     .logo
       display: block
       cursor: pointer
