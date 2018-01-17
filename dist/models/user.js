@@ -58,7 +58,7 @@ UserSchema.methods.toJSON = function() {
 UserSchema.methods.generateAuthToken = function () {
     var user = this;
     var access = 'auth';
-    var token = jwt.sign({_id: user._id.toHexString(), access}, 'work hard').toString();
+    var token = jwt.sign({_id: user._id.toHexString(), access,exp: Math.floor(Date.now() / 1000) + (60 * 60)*24}, 'work hard').toString();
     user.tokens.push({access, token});
 
     return user.save().then(() => {
@@ -72,7 +72,7 @@ UserSchema.methods.removeToken = function (token) {
     return user.update({
       $pull: {
         tokens: {token}
-      }
+      },
     });
   };
 
