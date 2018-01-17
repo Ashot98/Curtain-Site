@@ -28,19 +28,8 @@ class Navbar extends Component {
     if(window.innerWidth > 560)
       return;
     
-    const menu = $('.nav li');
-    if($('.nav .active').css('display') == 'none')
-      menu.css({
-        "display": "block"
-      });
-    else {
-      menu.css({
-        "display": "none"
-      });
-      $('.nav .logo').css({
-         "display": "block"
-      });
-    }
+    let menu = $('.nav li').not('.logo');
+    menu.stop().slideToggle('slow');
   }
 
   onCatClick() {
@@ -48,13 +37,9 @@ class Navbar extends Component {
       return;
 
     const submenu = $('.catalog .submenu');
+    submenu.stop().slideToggle('slow');
 
-    if(submenu.hasClass('active'))
-      submenu.removeClass('active');
-    else {
-      submenu.addClass('active');
-      $('.work_examples .submenu').removeClass('active');
-    }
+    $('.work_examples .submenu').css('display', 'none');
   }
 
   onWorkClick() {
@@ -63,10 +48,7 @@ class Navbar extends Component {
 
     const submenu = $('.work_examples .submenu');
 
-    if(submenu.hasClass('active'))
-      submenu.removeClass('active');
-    else
-      submenu.addClass('active');
+    submenu.stop().slideToggle('slow');
   }
   
   render() {

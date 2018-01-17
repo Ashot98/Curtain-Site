@@ -4,7 +4,7 @@ export default function(state=false, action) {
   switch(action.type) {
     case AUTH_USER:
       if(action.payload.data) {
-        console.log(action.payload.data)
+        localStorage.jakkardUserInfo = action.payload.data;
         return action.payload.data;
       }
   }

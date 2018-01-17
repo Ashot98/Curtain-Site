@@ -54,6 +54,48 @@
   color: #786b43;
 }
 
+.admin .menu {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 200px;
+}
+
+.admin .menu button {
+  padding: 10px;
+  background-color: #c2b792;
+  border: 1px solid #fff;
+}
+
+.admin .menu button:hover {
+  background-color: #b0a171;
+}
+
+.admin .menu button:active {
+  background-color: #998955;
+}
+
+.admin .menu button:focus {
+  outline: 0;
+}
+
+.admin .content {
+  margin-left: 210px;
+}
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1369,6 +1411,7 @@ hr {
   }
 
   .nav .catalog:hover .submenu {
+    display: block!important;
     visibility: visible;
     opacity: 1;
     z-index: 1;

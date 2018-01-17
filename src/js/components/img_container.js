@@ -7,6 +7,10 @@ class ImgContainer extends Component {
   componentWillMount() {
     this.props.getImages(this.props.type);
   }
+  
+  componentWillUpdate() {
+    this.props.getImages(this.props.type);
+  }
 
   renderImage(img) {
     return (

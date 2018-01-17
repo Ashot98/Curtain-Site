@@ -38,6 +38,19 @@ app.post('/api/login', (req, res) => {
  
 });
  
+app.post('/api/logout', function (req, res, next) {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function (err) {
+        if (err) {
+          return next(err);
+        } else {
+          return res.redirect('/');
+        }
+      });
+    }
+  });
+
 // POST QUERY 
 app.post('/api/photos/type=:type', function(req, res) {
   if (!req.files)
