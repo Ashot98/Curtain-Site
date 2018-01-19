@@ -7,15 +7,32 @@
   align-items: center
   transition: 0.5s opacity ease
   opacity: 0
-  .btn-contact
-    text-decoration: none
-    font-size: 18px
-    text-transform: uppercase
-    color: lighten(#b0a171,15)
-    padding: 18px 43px
-    border: 2px solid lighten(#b0a171,15)
-    transition: 0.2s all
-    &:hover
-      background-color: lighten(#b0a171,15)
-      color: #fff
-    
+  .contact_us
+    display: flex
+    flex-direction: column
+    .btn-contact
+      text-decoration: none
+      font-size: 18px
+      text-transform: uppercase
+      color: lighten(#b0a171,15)
+      padding: 18px 43px
+      border: 2px solid lighten(#b0a171,15)
+      transition: 0.2s all
+      margin-bottom: 20px
+      &:hover
+        background-color: lighten(#b0a171,15)
+        color: #fff
+    .socials
+      width: 100%
+      display: flex
+      justify-content: space-between
+      a
+        font-size: 32px
+        padding: 10px
+        width: 57px
+        border-radius: 50%
+        background-color: lighten(#b0a171,15)
+        color: #fff
+        text-decoration: none
+        text-align: center
+

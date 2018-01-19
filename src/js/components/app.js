@@ -32,10 +32,11 @@ export default class App extends Component {
     const parser = document.createElement('a');
     parser.href = url;
     const page = parser.pathname.slice(1);
-    if(page == 'admin')
+    if(page == 'admin' || page == 'addphoto')
       return (
         <div> {routes} </div>
       );
+
     else
       return(
         <div>

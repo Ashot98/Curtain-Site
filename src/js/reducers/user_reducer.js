@@ -7,6 +7,8 @@ export default function(state=false, action) {
         localStorage.jakkardUserInfo = action.payload.data;
         return action.payload.data;
       }
+      if(action.error)
+        return { error: action.error };
   }
   
   return state;

@@ -24,10 +24,10 @@ class Admin extends Component {
   }
 
   render() {
-    // if(!this.props.isAuthenticated) {
-    //   return <Login />
-    // }
-    // else
+    if(!this.props.isAuthenticated) {
+      return <Login />
+    }
+    else
       return (
         <div className='admin'>
           <div className='menu'>
@@ -45,8 +45,8 @@ class Admin extends Component {
             <button onClick={() => this.onMenuItemSelect('textile')}>Каталог Тканей</button>
             <button onClick={() => this.onMenuItemSelect('sketches')}>Эскизы</button>
           </div>
-          <div className='content'>
-            <ImgContainer type={this.state.type} />
+          <div className='content wrapper'>
+            <ImgContainer type={this.state.type} admin />
           </div>
         </div>
       );
@@ -55,7 +55,7 @@ class Admin extends Component {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user
+    isAuthenticated: state.user && !state.user.error
   }
 }
 

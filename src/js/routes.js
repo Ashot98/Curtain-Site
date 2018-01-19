@@ -19,6 +19,7 @@ import Textile from './components/textile';
 import Sketches from './components/sketches';
 import Designer from './components/designer';
 import Admin from './components/admin';
+import AddPhoto from './components/add_photo';
 
 export default (
     <Switch>
@@ -39,5 +40,6 @@ export default (
       <Route path='/sketches' component={Sketches} />
       <Route path='/call' component={Designer} />
       <Route path='/admin' component={Admin} />
+      <Route path='/addphoto' component={AddPhoto} />
     </Switch>
 )

@@ -48,24 +48,7 @@ class ImgContainer extends Component {
         <div className="selected_img" onClick={this.onImgClick}>
           <img src=""></img>
         </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/415177_img_2191-20-10-17-10-58.jpg' alt="" />
-        </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/492876_img_2193-20-10-17-10-56.jpg' alt="" />
-        </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/617095_dsc09190f.jpg' alt="" />
-        </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/764585_dsc07364f.jpg' alt="" />
-        </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/828137_cimg6313f.jpg' alt="" />
-        </div>
-        <div className="img_item" onClick={this.onImgClick}>
-          <img src='img/general/860720__mg_3840-2.jpg' alt="" />
-        </div>
+        {this.props.photos.map((photo) => this.renderImage(photo))};
       </div>
     );
   }

@@ -52,7 +52,7 @@ app.post('/api/logout', function (req, res, next) {
   });
 
 // POST QUERY 
-app.post('/api/photos/type=:type', function(req, res) {
+app.post('/api/photos/type', function(req, res) {
   if (!req.files)
     return res.status(400).send('No photos were uploaded');
  
@@ -61,10 +61,10 @@ app.post('/api/photos/type=:type', function(req, res) {
   let type = req.body.selType;
   files.forEach((file) => {
     let name = file.name;
-    let path = `D:/Ashot/Programming/Web/WorkProjects/Curtains Site/dist/img/${type}/${name}`;
+    let imgpath = path.resolve(__dirname, `img/${type}/${name}`);
      
   //  Use the mv() method to place the file somewhere on your server
-    file.mv(path, function(err) {
+    file.mv(imgpath, function(err) {
     if (err)
       return res.status(500).send(err);
     }); 

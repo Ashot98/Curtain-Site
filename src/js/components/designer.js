@@ -47,26 +47,29 @@ class Designer extends Component {
     const { reset } = this.props;
     axios.post(`${config.api_server}/designer`, values).then(
       result => { 
-        this.showPopup(true);
+        this.showInfo(true);
         reset();
       },
       error => { 
-        this.showPopup(false);
+        this.showInfo(false);
       }
     );
     
   }
 
-  showPopup(success) {
+  showInfo(success) {
     if(success) {
-      $('.popup_window span').html('Заявка отправлена! Спасибо!');
+      $('.info_block').removeClass('error').addClass('success').css('display', 'flex');
+      $('.info_msg').html('Письмо отправлено! Наш сотрудник свяжется с вами. Спасибо за проявленный интерес.');
     }
     else {
-      $('.popup_window span').html('Что-то пошло не так!');
+      $('.info_block').removeClass('success').addClass('error').css('display', 'flex');
+      $('.info_msg').html('Письмо не отправлено! Пожалуйста, попробуйте еще раз.');
     }
 
-    $('.designer_popup').addClass('opened');
-    $('body').css('overflow', 'hidden');
+    setTimeout(() => {
+      $('.info_block').css('display', 'none');
+    }, 4000);
   }
   
   hidePopup() {
@@ -78,12 +81,6 @@ class Designer extends Component {
     const { handleSubmit, pristine, submitting, invalid } = this.props;
     return (
       <div className='designer wrapper'>
-        <div className='designer_popup'>
-          <div className='popup_window'>
-            <span id='popup_msg'></span>
-            <button onClick={this.hidePopup}>Закрыть</button>
-          </div>
-        </div>
         <h3>Вызвать Дизайнера</h3>
         <hr />
         <p>
@@ -104,6 +101,9 @@ class Designer extends Component {
         <p>
           (* - объязательные поля)
         </p>
+        <div className='info_block'>
+          <span className='info_msg'></span>
+        </div>
         <form className='designer_form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field name='fullname' className='fullname' type='text' component={renderField} label='*ФИО:' />
           <Field name='tel' className='tel' type='text' component={renderField} label='*Телефон:' />

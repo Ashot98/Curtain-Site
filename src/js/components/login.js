@@ -16,6 +16,7 @@ class Login extends Component {
       <div className='login_page'>
         <Link to='/' className='back_btn'><i className="fa fa-angle-left" aria-hidden="true"></i>Назад</Link>
         <form className='login_form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          {this.props.error && <span>Неверный логин и/или пароль</span>}
           <Field name='login' className='login' type='text' component={renderField} label='Логин:' />
           <Field name='password' className='password' type='password' component={renderField} label='Пароль:' />
           <button type='submit' className='login_btn'>Войти</button>
@@ -27,7 +28,8 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user
+    isAuthenticated: state.user && !state.user.error,
+    error: state.user.error
   }
 }
 
