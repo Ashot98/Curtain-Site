@@ -59,6 +59,7 @@ class Navbar extends Component {
             <hr />
             <span id='logo-pic'>Jakkard</span>
             <hr />
+            <i className="fa fa-bars" aria-hidden="true"></i>
             </li>
           <li className={this.props.active == 'main' ? 'active' : ''}>
             <Link to='/' onClick={() => this.navPageSelect('main')}>Главная</Link>

@@ -13,6 +13,7 @@
  var {router} = require('./router');
  const port = process.env.PORT || 8080;
  const path = require('path');
+ const fs = require('fs');
   
  var app = express();
  app.use(fileUpload());
@@ -30,7 +31,7 @@ app.post('/api/login', (req, res) => {
     var body = _.pick(req.body, ['login', 'password']);
     User.findByCredentials(body.login, body.password).then((user) => {
         return user.generateAuthToken().then((token) => {
-            res.header('x-auth', token).send(user);
+            res.json({ login: body.login, jwtToken: token });
         });
     }).catch((e) => {
       res.status(400).send();
@@ -41,6 +42,11 @@ app.post('/api/login', (req, res) => {
 app.post('/api/logout', function (req, res, next) {
     if (req.session) {
       // delete session object
+      User.find().then((users) => {
+        var body = _.pick(req.body, 'token');
+        users[0].removeToken(body.token);
+      });
+
       req.session.destroy(function (err) {
         if (err) {
           return next(err);
@@ -50,6 +56,19 @@ app.post('/api/logout', function (req, res, next) {
       });
     }
   });
+
+app.post('/api/checktoken', (req, res) => {
+  var body = _.pick(req.body, 'user');
+  User.find().then((users) => {
+    const exists = users[0].tokens.filter((tokenObj) => tokenObj.token === body.user.jwtToken);
+    if(exists.length == 0) {
+      res.send(false);
+    }
+    else {
+      res.send(body.user);
+    }
+  });
+})
 
 // POST QUERY 
 app.post('/api/photos/type', function(req, res) {
@@ -118,17 +137,6 @@ app.get('/api/photos/:id', (req, res) => {
      });
 });
 
-//DELETE by type
-app.delete('/api/photos/type=:type', (req, res) => {
-     var type = req.params.type;
-     Photo.findOneAndRemove({type:type}).then((photo) => {
-         if(!photo){
-            return res.status(400).send('No photo has been found by that type');
-         }
-         res.send(photo);
-     }).catch((e) => {res.send(e)});
-     
- });
 
  //DELETE by ID
 app.delete('/api/photos/:id', (req, res) => {
@@ -140,9 +148,21 @@ app.delete('/api/photos/:id', (req, res) => {
          if(!photo){
             return res.status(400).send('No photo has been found by that ID');
          }
-         res.send(photo);
+         var delType = photo.type;
+
+         Photo.find({ type: delType }).then((photos) => {
+             res.send(photos);
+         }).catch((e) => {
+             console.log(e);
+             res.send(e);
+         });
+         var path = __dirname + `/` + photo.path;
+         fs.unlink(path, (err) => {
+             if(err) { throw err; }
+             console.log('Photo has been deleted');
+         });
+
      }).catch((e) => {res.send(e)});
-     
  });
 
 app.post('/api/designer', (req, res) => {

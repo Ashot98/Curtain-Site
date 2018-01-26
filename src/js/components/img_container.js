@@ -1,21 +1,48 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import { getImages } from '../actions/index';
+import { getImages, deleteImages } from '../actions/index';
 
 class ImgContainer extends Component {
   componentWillMount() {
     this.props.getImages(this.props.type);
   }
+
+  componentDidMount() {
+    setTimeout(() => {
+      $('.loading').css('display', 'none');
+      $('.img_items').css('display', 'flex');
+    }, 1000);
+  }
   
-  componentWillUpdate() {
-    this.props.getImages(this.props.type);
+  componentWillReceiveProps(nextProps) {
+    if(this.props.type != nextProps.type) {
+      this.props.getImages(nextProps.type);
+    }
+  }
+
+  componentDidUpdate() {
+    $('.loading').css('display', 'block');
+    $('.img_items').css('display', 'none');
+    setTimeout(() => {
+      $('.loading').css('display', 'none');
+      $('.img_items').css('display', 'flex');
+    }, 1000);
+  }
+
+  onDeleteClick(e, id) {
+    const confirm = window.confirm("Вы уверены, что хотите удалить фото?");
+
+    if(confirm) {
+      this.props.deleteImages(id);
+    }
   }
 
   renderImage(img) {
     return (
-      <div className="img_item" onClick={this.onImgClick}>
+      <div className="img_item" key={img._id} onClick={this.onImgClick}>
         <img src={img.path} alt="" />
+        {this.props.admin && <span onClick={(e) => this.onDeleteClick(e, img._id)}>X</span>}
       </div>
     );
   }
@@ -25,6 +52,11 @@ class ImgContainer extends Component {
     const container = $('.selected_img');
     const img = $('.selected_img img')
     
+    
+    if($(e.target)[0].tagName == "SPAN") {
+      return;
+    }
+
     if(container.hasClass('opened')) {
       container.removeClass('opened');
       img.attr("src", "");
@@ -38,17 +70,17 @@ class ImgContainer extends Component {
   }
 
   render() {
-    let imgElem = '';
-    if(Array.isArray(this.props.photos)) {
-      imgElem = this.props.photos.map(this.renderImage.bind(this))
-    }
-
     return (
-      <div className='img_items'>
-        <div className="selected_img" onClick={this.onImgClick}>
-          <img src=""></img>
+      <div>
+        <div className='loading'>
+          <div className='spinner'></div>
         </div>
-        {this.props.photos.map((photo) => this.renderImage(photo))};
+        <div className='img_items'>
+          <div className="selected_img" onClick={this.onImgClick}>
+            <img src=""></img>
+          </div>
+          {this.props.photos.map((photo) => this.renderImage(photo))}
+        </div>
       </div>
     );
   }
@@ -58,4 +90,4 @@ function mapStateToProps(state) {
   return { photos: state.photos };
 }
 
-export default connect(mapStateToProps, { getImages })(ImgContainer);
+export default connect(mapStateToProps, { getImages, deleteImages })(ImgContainer);

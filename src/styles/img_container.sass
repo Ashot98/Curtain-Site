@@ -1,10 +1,31 @@
 @import 'smart-grid'
 
+.loading
+  height: 400px
+  .spinner
+    position: relative
+    top: 50%
+    left: 50%
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #b0a171; /* Ira guyny */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
 .img_items
   +row-flex()
+  display: none
   .img_item
     overflow: hidden
     cursor: pointer
+    position: relative
     z-index: 0
     transition: transform 0.3s ease
     height: 260px
@@ -23,6 +44,17 @@
       width: 100%
       min-height: 100%
       border-radius: 10px
+    span
+      position: absolute
+      top: 5px
+      right: 5px
+      z-index: 2
+      font-size: 17px
+      padding: 2px 5px
+      border-radius: 50%
+      border: 1px solid red
+      background-color: red
+      color: #fff
   .selected_img
     transition: background-color 0.1s ease-in
     position: fixed
@@ -31,7 +63,7 @@
     height: 100%
     left: 0px
     top: 0px
-    z-index: 2
+    z-index: 3
     transform: scale(1.1, 1.1)
     background-color: rgba(0,0,0,0);
     display: flex

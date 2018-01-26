@@ -66,13 +66,17 @@ UserSchema.methods.generateAuthToken = function () {
     });
 };
 
-UserSchema.methods.removeToken = function (token) {
+UserSchema.methods.removeToken = function (resToken) {
     var user = this;
-  
-    return user.update({
+    
+    User.update({ login: user.login }, {
       $pull: {
-        tokens: {token}
+        tokens: { token: resToken }
       },
+    }).then((user) => {
+      return;
+    }).catch((e) => {
+      console.log(e);
     });
   };
 
