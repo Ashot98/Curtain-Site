@@ -57,7 +57,7 @@ class Information extends Component {
 
   render() {
     return (
-      <div className='inform'>
+      <div id='scroll' className='inform'>
         <div className='wrapper'>
           <div className='tabs'>
             <div className='about-tab-header active-tab-header' onClick={this.onTabClick}>

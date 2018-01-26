@@ -14,7 +14,7 @@ class Sketches extends Component {
 
   render() {
     return (
-      <div className='sketches wrapper'>
+      <div id='scroll' className='sketches wrapper'>
         <h3>Эскизы</h3>
         <hr />
         <ImgContainer type='sketches'/>

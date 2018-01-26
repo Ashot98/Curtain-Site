@@ -14,7 +14,7 @@ class Interior extends Component {
 
   render() {
     return (
-      <div className='interior wrapper'>
+      <div id='scroll' className='interior wrapper'>
         <h3>Предметы Интерьера</h3>
         <hr />
         <ImgContainer type='interior'/>

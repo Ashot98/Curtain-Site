@@ -14,7 +14,7 @@ class Corp extends Component {
 
   render() {
     return (
-      <div className='corp wrapper'>
+      <div id='scroll' className='corp wrapper'>
         <h3>Корпоративные</h3>
         <hr />
         <ImgContainer type='corp'/>

@@ -18,7 +18,7 @@ class Main extends Component {
   
   render() {
     return (
-      <section className='main'>
+      <section id='scroll' className='main'>
         <div className='contact_us'>
           <Link to='/contacts' onClick={() => this.props.setActive('contacts')} className="btn-contact">Связь с нами</Link>
           <div className='socials'>

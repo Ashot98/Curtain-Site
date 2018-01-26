@@ -14,7 +14,7 @@ class Textile extends Component {
 
   render() {
     return (
-      <div className='textile wrapper'>
+      <div id='scroll' className='textile wrapper'>
         <h3>Каталог тканей</h3>
         <hr />
         <p>

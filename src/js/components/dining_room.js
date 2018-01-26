@@ -14,7 +14,7 @@ class DiningRoom extends Component {
 
   render() {
     return (
-      <div className='diningroom wrapper'>
+      <div id='scroll' className='diningroom wrapper'>
         <h3>Столовая</h3>
         <hr />
         <ImgContainer type='diningroom'/>

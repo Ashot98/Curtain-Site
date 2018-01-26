@@ -21,6 +21,10 @@ class Navbar extends Component {
   }
   
   navPageSelect(page) {
+    $('html, body').animate({
+      scrollTop: $("#scroll").offset().top
+    }, 1000);
+
     this.props.setActive(page);
   }
   

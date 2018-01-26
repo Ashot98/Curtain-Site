@@ -1,10 +1,26 @@
 .footer
+  position: relative
   padding: 30px
   text-align: center
   font-size: 20px
   color: darken(#b0a171, 20)
   background: linear-gradient(lighten(#b0a171, 30), lighten(#b0a171, 15))
-  
+  #ad
+    position: absolute
+    right: 10px
+    bottom: 5px
+    a
+      text-decoration: none
+      color: darken(#b0a171, 20)
+      &:active
+        color: darken(#b0a171, 20)
+    
+@media screen and (max-width: 780px)
+  .footer
+    #ad
+      margin-top: 5px
+      position: static
+
 @media screen and (max-width: 560px)
   .footer
     font-size: 16px

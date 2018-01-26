@@ -73,6 +73,24 @@
   background-color: #fff;
 }
 
+.add_photo .back_btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #aea79d;
+}
+
+.add_photo .back_btn i {
+  margin-right: 5px;
+}
+
+.add_photo .back_btn:hover {
+  color: #615a51;
+}
+
 .add_photo .add_form .file_select {
   width: .1px;
   height: .1px;
@@ -83,17 +101,69 @@
 }
 
 .add_photo .add_form label {
-  font-size: 1.25em;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   display: inline-block;
   margin-right: 20px;
   cursor: pointer;
-  padding: 20px;
+  padding: 5px 20px;
   background-color: #b0a171;
 }
 
 .add_photo .add_form label:hover {
+  background-color: #897a4c;
+}
+
+.add_photo .add_form .file_select:focus+label {
+  outline: 2px solid #5e9ed6;
+}
+
+.add_photo .add_form #softflow {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  padding-left: 2px;
+  padding-right: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),-webkit-gradient(linear,left top,left bottom,from(#fafafa),color-stop(40%,#f4f4f4),to(#e5e5e5));
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),-webkit-linear-gradient(#fafafa,#f4f4f4 40%,#e5e5e5);
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),-o-linear-gradient(#fafafa,#f4f4f4 40%,#e5e5e5);
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),linear-gradient(#fafafa,#f4f4f4 40%,#e5e5e5);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  border: 1px solid #aaa;
+  color: #555;
+  font-size: inherit;
+  margin: 20px;
+  overflow: hidden;
+  padding: 5px 10px;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
+
+.add_photo .add_form #upload_btn {
+  font-size: 16;
+  font-weight: 700;
+  color: #fff;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  padding: 5px 20px;
+  background-color: #b0a171;
+  border: none;
+}
+
+.add_photo .add_form #upload_btn:hover {
   background-color: #897a4c;
 }
 
@@ -818,6 +888,7 @@ hr {
 }
 
 .footer {
+  position: relative;
   padding: 30px;
   text-align: center;
   font-size: 20px;
@@ -826,6 +897,21 @@ hr {
   background: -webkit-linear-gradient(#e7e2d3,#cbc2a2);
   background: -o-linear-gradient(#e7e2d3,#cbc2a2);
   background: linear-gradient(#e7e2d3,#cbc2a2);
+}
+
+.footer #ad {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.footer #ad a {
+  text-decoration: none;
+  color: #786b43;
+}
+
+.footer #ad a:active {
+  color: #786b43;
 }
 
 .loading {
@@ -1756,6 +1842,11 @@ hr {
   .designer .designer_form .form_item input,
   .designer .designer_form .form_item textarea {
     width: 100%;
+  }
+
+  .footer #ad {
+    margin-top: 5px;
+    position: static;
   }
 
   .img_items .img_item {

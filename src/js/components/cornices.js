@@ -14,7 +14,7 @@ class Accessories extends Component {
 
   render() {
     return (
-      <div className='cornices wrapper'>
+      <div id='scroll' className='cornices wrapper'>
         <h3>Карнизы</h3>
         <hr />
         <p>

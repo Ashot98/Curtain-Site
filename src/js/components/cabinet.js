@@ -14,7 +14,7 @@ class Cabinet extends Component {
 
   render() {
     return (
-      <div className='cabinet wrapper'>
+      <div id='scroll' className='cabinet wrapper'>
         <h3>Кабинет</h3>
         <hr />
         <ImgContainer type='cabinet'/>

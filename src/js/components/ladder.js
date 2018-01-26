@@ -14,7 +14,7 @@ class Ladder extends Component {
 
   render() {
     return (
-      <div className='ladder wrapper'>
+      <div id='scroll' className='ladder wrapper'>
         <h3>Лестничные Пролеты</h3>
         <hr />
         <ImgContainer type='ladder'/>

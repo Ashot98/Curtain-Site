@@ -80,7 +80,7 @@ class Designer extends Component {
   render() {
     const { handleSubmit, pristine, submitting, invalid } = this.props;
     return (
-      <div className='designer wrapper'>
+      <div id='scroll' className='designer wrapper'>
         <h3>Вызвать Дизайнера</h3>
         <hr />
         <p>

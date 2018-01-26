@@ -78,25 +78,46 @@ app.post('/api/photos/type', function(req, res) {
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   let files = req.files.sampleFile;
   let type = req.body.selType;
-  files.forEach((file) => {
+  if(!files.length) {
+    let file = files;
     let name = file.name;
     let imgpath = path.resolve(__dirname, `img/${type}/${name}`);
-     
-  //  Use the mv() method to place the file somewhere on your server
+        
+    //  Use the mv() method to place the file somewhere on your server
     file.mv(imgpath, function(err) {
-    if (err)
-      return res.status(500).send(err);
+        if (err)
+            return res.status(500).send(err);
     }); 
     const photo = new Photo({
         path: 'img/'+ type + '/' + name,
         type: type
     });
-      photo.save((e) => {
-          if(e)
-              console.log(e);
-      });
-  })
-  res.send("Files uploaded")
+    photo.save((e) => {
+        if(e)
+            console.log(e);
+    });
+  }
+  else {
+    files.forEach((file) => {
+        let name = file.name;
+        let imgpath = path.resolve(__dirname, `img/${type}/${name}`);
+         
+      //  Use the mv() method to place the file somewhere on your server
+        file.mv(imgpath, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        }); 
+        const photo = new Photo({
+            path: 'img/'+ type + '/' + name,
+            type: type
+        });
+          photo.save((e) => {
+              if(e)
+                  console.log(e);
+          });
+      })
+  }
+  res.redirect('/admin');
 });
   
 //Find all photos

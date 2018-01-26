@@ -14,7 +14,7 @@ class ChildRoom extends Component {
 
   render() {
     return (
-      <div className='childroom wrapper'>
+      <div id='scroll' className='childroom wrapper'>
         <h3>Детская</h3>
         <hr />
         <ImgContainer type='childroom'/>

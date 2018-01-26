@@ -5,6 +5,10 @@ class Footer extends Component {
     return (
       <div className='footer'>
         <p>© JAKKARD Inc.  | All Rights Reserved.</p>
+        <div id='ad'>
+          <p>Created by Rocket Soft</p>
+          <a href='https://www.facebook.com/rocketsoftt' target='_blank'>fb.com/rocketsoftt</a>
+        </div>
       </div>
     );
   }

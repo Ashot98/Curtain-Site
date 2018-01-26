@@ -14,7 +14,7 @@ class BedRoom extends Component {
 
   render() {
     return (
-      <div className='bedroom wrapper'>
+      <div id='scroll' className='bedroom wrapper'>
         <h3>Спальня</h3>
         <hr />
         <ImgContainer type='bedroom'/>

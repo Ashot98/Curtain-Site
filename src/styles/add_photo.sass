@@ -6,6 +6,18 @@
   justify-content: center
   align-items: center
   background-color: #fff
+  .back_btn
+    position: fixed
+    top: 30px
+    left: 30px
+    text-decoration: none
+    font-size: 20px
+    text-transform: uppercase 
+    color: #aea79d
+    i
+      margin-right: 5px
+    &:hover
+      color: darken(#aea79d, 30)
   .add_form
     .file_select
       width: 0.1px;
@@ -15,13 +27,46 @@
       position: absolute;
       z-index: -1;
     label
-      font-size: 1.25em;
+      font-size: 16px;
       font-weight: 700;
       color: white;
       display: inline-block;
       margin-right: 20px
       cursor: pointer;
-      padding: 20px
+      padding: 5px 20px
       background-color: #b0a171
+      &:hover
+        background-color: darken(#b0a171, 15)
+    .file_select:focus + label
+        outline: 2px solid rgb(94, 158, 214)
+    #softflow
+      appearance: button
+      border-radius: 2px
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1)
+      padding-left: 2px
+      padding-right: 20px
+      user-select: none
+      background-image: url(http://i62.tinypic.com/15xvbd5.png), linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+      background-position: 97% center;
+      background-repeat: no-repeat;
+      border: 1px solid #AAA;
+      color: #555;
+      font-size: inherit;
+      margin: 20px;
+      overflow: hidden;
+      padding: 5px 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 200px;
+    #upload_btn
+      font-size: 16;
+      font-weight: 700;
+      color: white;
+      display: inline-block;
+      margin-right: 20px
+      cursor: pointer;
+      padding: 5px 20px
+      background-color: #b0a171
+      border: none
       &:hover
         background-color: darken(#b0a171, 15)

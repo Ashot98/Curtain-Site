@@ -29,7 +29,7 @@ class Contacts extends Component {
   
   render() {
     return (
-      <div className='contacts'>
+      <div id='scroll' className='contacts'>
         <div className="wrapper">
           <h3>Контактная Информация</h3>
           <hr />
