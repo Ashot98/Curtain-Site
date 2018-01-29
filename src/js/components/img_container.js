@@ -70,6 +70,14 @@ class ImgContainer extends Component {
   }
 
   render() {
+    let images = '';
+    if(Array.isArray(this.props.photos)) {
+      images = this.props.photos.map((photo) => this.renderImage(photo));
+    }
+    else if(this.props.photos) {
+      images = this.renderImage(this.props.photos);
+    }
+
     return (
       <div>
         <div className='loading'>
@@ -79,7 +87,7 @@ class ImgContainer extends Component {
           <div className="selected_img" onClick={this.onImgClick}>
             <img src=""></img>
           </div>
-          {this.props.photos.map((photo) => this.renderImage(photo))}
+          { images }
         </div>
       </div>
     );
