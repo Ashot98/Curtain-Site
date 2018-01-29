@@ -202,7 +202,7 @@ app.post('/api/designer', (req, res) => {
 
     var mailOptions = {
         from: 'mikael_2000@mail.ru',
-        to: 'ashott98@gmail.com',
+        to: 'salon_jakkard@mail.ru',
         subject: 'Sending "Designer" form',
         text: text
      };
