@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
@@ -47,7 +47,7 @@ class AddPhoto extends Component {
           <form ref='uploadForm' 
             className='add_form' 
             id='uploadForm' 
-            action='http://188.225.74.179:8080/api/photos/type' 
+            action='http://salonjakkard.ru/api/photos/type' 
             method='post' 
             encType="multipart/form-data">
             <input className='file_select' 
