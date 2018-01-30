@@ -14,7 +14,7 @@
  const port = process.env.PORT || 8080;
  const path = require('path');
  const fs = require('fs');
- const conf = require('../config.json');
+
   
  var app = express();
  app.use(fileUpload());
