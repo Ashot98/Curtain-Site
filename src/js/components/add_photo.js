@@ -47,7 +47,7 @@ class AddPhoto extends Component {
           <form ref='uploadForm' 
             className='add_form' 
             id='uploadForm' 
-            action='http://localhost:8080/api/photos/type' 
+            action='http://188.225.74.179:8080/api/photos/type' 
             method='post' 
             encType="multipart/form-data">
             <input className='file_select' 
